@@ -12,7 +12,8 @@ from math import radians, sin, cos, sqrt, atan2
 from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__)
-MAPS_API_KEY = 'AIzaSyA4mwuv90IJ3oYSyMA8vtDnvPzqXXDDUro'  # Replace with your actual API key
+MAPS_API_KEY = os.environ.get('MAPS_API_KEY')
+RECREATION_API_KEY = os.environ.get('RECREATION_API_KEY')
 
 # Configure logging with timestamp
 LOG_DIR = 'logs'
@@ -293,7 +294,7 @@ def search_campsites():
             'longitude': lng,
             'radius': 200,  # 200 mile radius
             'activity': 'CAMPING',
-            'apikey': '08e3c5b9-468e-4b06-a40d-2277e611e32a'
+            'apikey': RECREATION_API_KEY
         }
         
         response = requests.get(url, params=params)

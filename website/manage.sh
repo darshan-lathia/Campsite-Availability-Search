@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-APP_DIR="/Users/darshan/Projects/Camping_Reservation/website"
-GUNICORN_BIN="/Users/darshan/.pyenv/versions/3.12.2/bin/gunicorn"
+APP_DIR="$(pwd)"
+GUNICORN_BIN="gunicorn"
 PID_FILE="$APP_DIR/gunicorn.pid"
 LOG_DIR="$APP_DIR/logs"
 ACCESS_LOG="$LOG_DIR/access.log"

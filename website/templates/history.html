@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search History - Campsite Availability Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            background: linear-gradient(
+                rgba(255, 255, 255, 0.22),
+                rgba(255, 255, 255, 0.22)
+            ),
+            url("https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=2070&auto=format&fit=crop");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .history-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .history-item {
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .history-item:hover {
+            background-color: var(--background-color);
+            transform: translateX(5px);
+        }
+
+        .history-details {
+            flex: 1;
+        }
+
+        .history-city {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .history-park {
+            margin-top: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        .history-id {
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .clear-history {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            margin-bottom: 1rem;
+        }
+
+        .clear-history:hover {
+            opacity: 0.9;
+        }
+
+        .no-history {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-color);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-center">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/history" class="nav-link">History</a>
+            <a href="/about" class="nav-link">About</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="history-container">
+            <h1>Search History</h1>
+            <button id="clearHistory" class="clear-history">Clear History</button>
+            <div id="historyList">
+                <!-- History items will be inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const historyList = document.getElementById('historyList');
+            const clearButton = document.getElementById('clearHistory');
+            
+            function loadHistory() {
+                const history = JSON.parse(localStorage.getItem('campsiteHistory') || '[]');
+                historyList.innerHTML = '';
+                
+                if (history.length === 0) {
+                    historyList.innerHTML = '<div class="no-history">No search history yet</div>';
+                    return;
+                }
+                
+                history.forEach(item => {
+                    const historyItem = document.createElement('div');
+                    historyItem.className = 'history-item';
+                    historyItem.innerHTML = `
+                        <div class="history-details">
+                            <div class="history-city">${item.city}</div>
+                            <div class="history-park">
+                                ${item.parkName}
+                                <span class="history-id">ID: ${item.parkId}</span>
+                            </div>
+                        </div>
+                    `;
+                    
+                    historyItem.addEventListener('click', () => {
+                        // Populate the form on the home page and redirect
+                        sessionStorage.setItem('fillParkId', item.parkId);
+                        window.location.href = '/';
+                    });
+                    
+                    historyList.appendChild(historyItem);
+                });
+            }
+            
+            clearButton.addEventListener('click', () => {
+                if (confirm('Are you sure you want to clear your search history?')) {
+                    localStorage.removeItem('campsiteHistory');
+                    loadHistory();
+                }
+            });
+            
+            loadHistory();
+        });
+    </script>
+</body>
+</html> 

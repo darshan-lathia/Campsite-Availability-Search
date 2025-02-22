@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Campsite Availability Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            background: linear-gradient(
+                rgba(255, 255, 255, 0.22),
+                rgba(255, 255, 255, 0.22)
+            ),
+            url("https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=2070&auto=format&fit=crop");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .about-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-container h1 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .about-container p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .feature-list {
+            margin: 1.5rem 0;
+            padding-left: 1.2rem;
+        }
+
+        .feature-list li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-center">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/history" class="nav-link">History</a>
+            <a href="/about" class="nav-link">About</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="about-container">
+            <h1>About Campsite Availability Search</h1>
+            
+            <p>Welcome to Campsite Availability Search! This tool helps you find available campsites at your favorite 
+            Recreation.gov locations, making it easier to plan your outdoor adventures.</p>
+
+            <h2>Key Features:</h2>
+            <ul class="feature-list">
+                <li>Search for campgrounds near any city in the US</li>
+                <li>Find available dates for specific campgrounds</li>
+                <li>Filter for weekend-only availability</li>
+                <li>View campsite locations on an interactive map</li>
+                <li>Quick access to Recreation.gov booking</li>
+            </ul>
+
+            <p>This project is currently in development. More features and improvements are coming soon!</p>
+
+            <h2>How to Use:</h2>
+            <ol class="feature-list">
+                <li>Enter a city to find nearby campgrounds</li>
+                <li>Click on a campground to get its Park ID</li>
+                <li>Set your desired date range and preferences</li>
+                <li>Click "Search Availability" to see available dates</li>
+                <li>Click on any available date to book through Recreation.gov</li>
+            </ol>
+
+            <p style="margin-top: 2rem; font-style: italic;">
+                Note: This is an independent tool and is not affiliated with Recreation.gov. 
+                All bookings are made through the official Recreation.gov website.
+            </p>
+        </div>
+    </main>
+</body>
+</html> 

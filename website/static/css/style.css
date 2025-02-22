@@ -1,0 +1,476 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #4C6EF5;       /* A refined blue */
+    --secondary-color: #82C91E;     /* A complementary green accent */
+    --accent-color: #F59F00;        /* Accent for emphasis if needed */
+    --background-color: #E9ECEF;    /* Darker gray background */
+    --text-color: #495057;          /* Deep, classy gray for text */
+    --border-color: #CED4DA;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-bottom: 2rem;
+}
+
+nav {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+}
+
+.nav-center {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.search-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 4px rgba(76,110,245,0.3);
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-top: 0.5rem;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    padding: 0.15rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.radio-group:hover {
+    background-color: var(--background-color);
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.search-button:hover {
+    background-color: var(--secondary-color);
+}
+
+.results-container {
+    margin-top: 2rem;
+}
+
+.results-section {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 1rem;
+}
+
+.results-section h2 {
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.25rem 0;
+}
+
+.result-item {
+    margin-bottom: 0.5rem;
+}
+
+.result-text {
+    flex: 1;
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.campground-name {
+    background-color: white;
+    color: var(--text-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    box-shadow: var(--card-shadow);
+}
+
+.campground-name a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.campground-name a:hover {
+    color: var(--primary-color);
+}
+
+.change-notification {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-align: center;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Add new styles for the restructured result line */
+.result-date-range {
+    flex: 1;
+    font-size: 1rem;
+}
+
+.result-availability {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-left: auto;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.result-availability:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Add new styles for vertical stacked layout with icons */
+.result-card {
+    background-color: #fff;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+.result-date-line {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.result-icon {
+    font-size: 1.2rem;
+}
+
+.result-arrow {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
+}
+
+.result-date-text {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+/* For mobile screens */
+@media (max-width: 600px) {
+    .result-date-line {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .result-availability {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.search-with-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.search-with-button input {
+    flex: 1;
+    height: 40px;
+}
+
+.search-city-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.4rem;
+    transition: background-color 0.2s;
+}
+
+.search-city-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Style the datalist dropdown */
+input[list]::-webkit-calendar-picker-indicator {
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+/* Style Google Places Autocomplete dropdown */
+.pac-container {
+    border-radius: 4px;
+    margin-top: 2px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    font-family: 'Lato', sans-serif;
+}
+
+.pac-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+}
+
+.pac-item:hover {
+    background-color: var(--background-color);
+}
+
+.pac-item-query {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.campsite-list {
+    background: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.campsite-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    padding: 0 0.5rem;
+}
+
+.click-note {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    font-style: italic;
+}
+
+.campsite-list h3 {
+    margin-bottom: 0.9rem;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.campsite-item {
+    padding: 0.4rem 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.campsite-item:hover {
+    background-color: var(--background-color);
+}
+
+.campsite-info {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.campsite-map {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.campsite-map:hover {
+    opacity: 0.9;
+}
+
+.campsite-name {
+    font-weight: bold;
+    margin-right: 1rem;
+}
+
+.campsite-id {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.area-map {
+    width: 100%;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 300px;
+}
+
+.area-map-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+}
+
+.area-map-image:hover {
+    opacity: 0.9;
+}
+
+@media (min-width: 768px) {
+    .campsite-list {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    .campsite-results {
+        flex: 1;
+    }
+    
+    .area-map {
+        width: 400px;
+        height: 100%;
+        min-height: 400px;
+        position: sticky;
+        top: 1rem;
+    }
+} 
